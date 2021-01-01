@@ -31,6 +31,8 @@
             this.AIb = new System.Windows.Forms.Label();
             this.PlayerB = new System.Windows.Forms.Label();
             this.gameStatus = new System.Windows.Forms.Label();
+            this.labelShipsOp = new System.Windows.Forms.Label();
+            this.labelShipsPl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AIb
@@ -65,11 +67,36 @@
             this.gameStatus.Size = new System.Drawing.Size(0, 32);
             this.gameStatus.TabIndex = 4;
             // 
+            // labelShipsOp
+            // 
+            this.labelShipsOp.AutoSize = true;
+            this.labelShipsOp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelShipsOp.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.labelShipsOp.Location = new System.Drawing.Point(40, 433);
+            this.labelShipsOp.Name = "labelShipsOp";
+            this.labelShipsOp.Size = new System.Drawing.Size(48, 18);
+            this.labelShipsOp.TabIndex = 5;
+            this.labelShipsOp.Text = "Ships";
+            // 
+            // labelShipsPl
+            // 
+            this.labelShipsPl.AutoSize = true;
+            this.labelShipsPl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelShipsPl.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.labelShipsPl.Location = new System.Drawing.Point(410, 433);
+            this.labelShipsPl.Name = "labelShipsPl";
+            this.labelShipsPl.Size = new System.Drawing.Size(48, 18);
+            this.labelShipsPl.TabIndex = 6;
+            this.labelShipsPl.Text = "Ships";
+            this.labelShipsPl.Click += new System.EventHandler(this.labelShipsPl_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.labelShipsPl);
+            this.Controls.Add(this.labelShipsOp);
             this.Controls.Add(this.gameStatus);
             this.Controls.Add(this.PlayerB);
             this.Controls.Add(this.AIb);
@@ -87,6 +114,8 @@
         private System.Windows.Forms.Label AIb;
         private System.Windows.Forms.Label PlayerB;
         private System.Windows.Forms.Label gameStatus;
+        private System.Windows.Forms.Label labelShipsOp;
+        private System.Windows.Forms.Label labelShipsPl;
     }
 }
 

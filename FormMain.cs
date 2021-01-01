@@ -57,7 +57,20 @@ namespace Battleship
             Opponent.PlaceRandomShips();
             Player.PlaceRandomShips();
         }
-
+        private void UpdateShipsLabel(List<Ship> ships, Label label)
+        {
+            label.Text = "";
+            int i = 0;
+            foreach (var ship in ships)
+            {
+                if (!ship.IsSunk)
+                {
+                    i++;
+                    label.Text += ship.Name + "(" + ship.Width + ") ";
+                    if (i == 3) label.Text += '\n';
+                }
+            }
+        }
         private void FormMain_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -69,16 +82,21 @@ namespace Battleship
                 {
                     _click.isOpen = false;
                     Opponent.AfterShot(_click);
+                    UpdateShipsLabel(Player.Ships, labelShipsPl);
 
                     var shotCoord = Player.Shot();
                     var shot = Player.Board.Squares.Where(s => s.Coordinates == shotCoord).FirstOrDefault();
                     shot.isOpen = false;
-
                     Player.AfterShot(shot);
+                    UpdateShipsLabel(Opponent.Ships, labelShipsOp);
                 }       
             }
             Invalidate();
         }
 
+        private void labelShipsPl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -101,7 +101,7 @@
             // 
             // buttonReady
             // 
-            this.buttonReady.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonReady.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonReady.ForeColor = System.Drawing.Color.Green;
             this.buttonReady.Location = new System.Drawing.Point(257, 12);
             this.buttonReady.Name = "buttonReady";
@@ -127,11 +127,10 @@
             // 
             this.labelPlace.AutoSize = true;
             this.labelPlace.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPlace.Location = new System.Drawing.Point(521, 49);
+            this.labelPlace.Location = new System.Drawing.Point(512, 49);
             this.labelPlace.Name = "labelPlace";
-            this.labelPlace.Size = new System.Drawing.Size(81, 18);
+            this.labelPlace.Size = new System.Drawing.Size(0, 18);
             this.labelPlace.TabIndex = 5;
-            this.labelPlace.Text = "labelPlace";
             // 
             // FormPlace
             // 

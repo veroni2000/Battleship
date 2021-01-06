@@ -10,7 +10,6 @@ namespace Battleship
 {
     class Player
     {
-        public string Name { get; set; }
         public List<Ship> Ships { get; set; }
         public Board Board { get; set; }
         public bool PlacedShips = false;
@@ -21,9 +20,8 @@ namespace Battleship
                 return Ships.All(s => s.IsSunk);
             }
         }
-        public Player(string name, Point point)
+        public Player(Point point)
         {
-            Name = name;
             Ships = new List<Ship>()
             {
                 new Carrier(),

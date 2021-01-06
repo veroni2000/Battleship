@@ -144,8 +144,7 @@ namespace Battleship
             else
             {
                 _openSquares = new List<Square>();
-                labelPlace.Text = "Place your "+_shipToBePlaced.Name;
-                MessageBox.Show(_shipToBePlaced.Width.ToString());
+                labelPlace.Text = "Place your "+_shipToBePlaced.Name+".";
                 foreach (var square in Board.Squares)
                 {
                     var startColumn = square.Coordinates.Column;

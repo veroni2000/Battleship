@@ -12,8 +12,8 @@ namespace Battleship
 {
     public partial class FormMain : Form
     {
-        private Player Opponent = new Player("Opponent", new Point(40, 100));
-        private Player Player = new Player("Player", new Point(410, 100));
+        private Player Opponent = new Player(new Point(40, 100));
+        private Player Player = new Player(new Point(410, 100));
         private Square _click = null;
         private bool playing = false;
         public FormMain()
@@ -108,6 +108,7 @@ namespace Battleship
             playing = true;
             buttonStart.Visible = false;
             buttonPlace.Visible = false;
+            labelRandom.Visible = false;
             PlayerB.Visible = true;
             AIb.Visible = true;
             if (!Player.PlacedShips) Player.PlaceRandomShips();
@@ -130,7 +131,7 @@ namespace Battleship
             }
             else
             {
-                Player = new Player("Player", new Point(410, 100));
+                Player = new Player(new Point(410, 100));
             }            
             Invalidate();
         }

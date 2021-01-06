@@ -35,6 +35,7 @@
             this.labelShipsPl = new System.Windows.Forms.Label();
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonPlace = new System.Windows.Forms.Button();
+            this.labelRandom = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AIb
@@ -44,9 +45,9 @@
             this.AIb.ForeColor = System.Drawing.Color.MidnightBlue;
             this.AIb.Location = new System.Drawing.Point(40, 75);
             this.AIb.Name = "AIb";
-            this.AIb.Size = new System.Drawing.Size(87, 19);
+            this.AIb.Size = new System.Drawing.Size(148, 19);
             this.AIb.TabIndex = 2;
-            this.AIb.Text = "AI`s board";
+            this.AIb.Text = "Opponent`s board";
             this.AIb.Visible = false;
             // 
             // PlayerB
@@ -115,11 +116,23 @@
             this.buttonPlace.UseVisualStyleBackColor = true;
             this.buttonPlace.Click += new System.EventHandler(this.buttonPlace_Click);
             // 
+            // labelRandom
+            // 
+            this.labelRandom.AutoSize = true;
+            this.labelRandom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRandom.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.labelRandom.Location = new System.Drawing.Point(124, 342);
+            this.labelRandom.Name = "labelRandom";
+            this.labelRandom.Size = new System.Drawing.Size(112, 18);
+            this.labelRandom.TabIndex = 10;
+            this.labelRandom.Text = "(random ships)";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.labelRandom);
             this.Controls.Add(this.buttonPlace);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.labelShipsPl);
@@ -145,6 +158,7 @@
         private System.Windows.Forms.Label labelShipsPl;
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Button buttonPlace;
+        private System.Windows.Forms.Label labelRandom;
     }
 }
 

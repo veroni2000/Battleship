@@ -13,6 +13,7 @@ namespace Battleship
         public string Name { get; set; }
         public List<Ship> Ships { get; set; }
         public Board Board { get; set; }
+        public bool PlacedShips = false;
         public bool HasLost
         {
             get
@@ -44,7 +45,7 @@ namespace Battleship
                     var startColumn = rand.Next(1, 11);
                     var startRow = rand.Next(1, 11);
                     int endRow = startRow, endColumn = startColumn;
-                    var orientation = rand.Next(1, 101) % 2; //0 е хоризонтално
+                    var orientation = rand.Next(1, 101) % 2; //1 е хоризонтално
 
                     List<int> squareNumbers = new List<int>();
 
@@ -75,6 +76,7 @@ namespace Battleship
                     isOpen = false;
                 }
             }
+            PlacedShips = true;
         }
         public Coordinates Shot()
         {

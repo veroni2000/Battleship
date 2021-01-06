@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Battleship
 {
-    class Board
+    public class Board
     {
         public List<Square> Squares { get; set; }
         public Board(Point point)

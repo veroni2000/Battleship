@@ -33,6 +33,8 @@
             this.gameStatus = new System.Windows.Forms.Label();
             this.labelShipsOp = new System.Windows.Forms.Label();
             this.labelShipsPl = new System.Windows.Forms.Label();
+            this.buttonStart = new System.Windows.Forms.Button();
+            this.buttonPlace = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AIb
@@ -45,6 +47,7 @@
             this.AIb.Size = new System.Drawing.Size(87, 19);
             this.AIb.TabIndex = 2;
             this.AIb.Text = "AI`s board";
+            this.AIb.Visible = false;
             // 
             // PlayerB
             // 
@@ -56,6 +59,7 @@
             this.PlayerB.Size = new System.Drawing.Size(120, 19);
             this.PlayerB.TabIndex = 3;
             this.PlayerB.Text = "Player`s board";
+            this.PlayerB.Visible = false;
             // 
             // gameStatus
             // 
@@ -74,9 +78,8 @@
             this.labelShipsOp.ForeColor = System.Drawing.Color.MidnightBlue;
             this.labelShipsOp.Location = new System.Drawing.Point(40, 433);
             this.labelShipsOp.Name = "labelShipsOp";
-            this.labelShipsOp.Size = new System.Drawing.Size(48, 18);
+            this.labelShipsOp.Size = new System.Drawing.Size(0, 18);
             this.labelShipsOp.TabIndex = 5;
-            this.labelShipsOp.Text = "Ships";
             // 
             // labelShipsPl
             // 
@@ -85,16 +88,40 @@
             this.labelShipsPl.ForeColor = System.Drawing.Color.MidnightBlue;
             this.labelShipsPl.Location = new System.Drawing.Point(410, 433);
             this.labelShipsPl.Name = "labelShipsPl";
-            this.labelShipsPl.Size = new System.Drawing.Size(48, 18);
+            this.labelShipsPl.Size = new System.Drawing.Size(0, 18);
             this.labelShipsPl.TabIndex = 6;
-            this.labelShipsPl.Text = "Ships";
-            this.labelShipsPl.Click += new System.EventHandler(this.labelShipsPl_Click);
+            // 
+            // buttonStart
+            // 
+            this.buttonStart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonStart.ForeColor = System.Drawing.Color.Green;
+            this.buttonStart.Location = new System.Drawing.Point(100, 266);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(165, 73);
+            this.buttonStart.TabIndex = 7;
+            this.buttonStart.Text = "Start playing";
+            this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+            // 
+            // buttonPlace
+            // 
+            this.buttonPlace.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPlace.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.buttonPlace.Location = new System.Drawing.Point(100, 100);
+            this.buttonPlace.Name = "buttonPlace";
+            this.buttonPlace.Size = new System.Drawing.Size(165, 64);
+            this.buttonPlace.TabIndex = 9;
+            this.buttonPlace.Text = "Place ships";
+            this.buttonPlace.UseVisualStyleBackColor = true;
+            this.buttonPlace.Click += new System.EventHandler(this.buttonPlace_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.buttonPlace);
+            this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.labelShipsPl);
             this.Controls.Add(this.labelShipsOp);
             this.Controls.Add(this.gameStatus);
@@ -116,6 +143,8 @@
         private System.Windows.Forms.Label gameStatus;
         private System.Windows.Forms.Label labelShipsOp;
         private System.Windows.Forms.Label labelShipsPl;
+        private System.Windows.Forms.Button buttonStart;
+        private System.Windows.Forms.Button buttonPlace;
     }
 }
 

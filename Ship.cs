@@ -11,6 +11,7 @@ namespace Battleship
         public string Name { get; set; }
         public int Width { get; set; }
         public int Hits { get; set; }
+        public bool IsPlaced = false;
         public Occupation Occupation { get; set; }
         public bool IsSunk
         {

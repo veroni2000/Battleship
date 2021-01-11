@@ -81,11 +81,9 @@ namespace Battleship
             var hitNeighbors = Board.GetHitNeighbors();
             Coordinates coordinates;
             if (hitNeighbors.Any()) {
-                Debug.Write("Shot calling SearchingShot" + '\n');
                 coordinates = SearchingShot(); }
             else
             {
-                Debug.Write("Shot calling RandomShot" + '\n');
                 coordinates = RandomShot();
             }
             return coordinates;
@@ -95,7 +93,6 @@ namespace Battleship
             var available = Board.GetOpenSquares();
             Random rand = new Random();
             int square = rand.Next(0,available.Count-1);
-            Debug.Write("square " + square + " from " + available.Count + '\n');
             return available[square];
 
         }
@@ -103,7 +100,6 @@ namespace Battleship
         {
             Random rand = new Random();
             var hitNeighbors = Board.GetHitNeighbors();
-            Debug.Write("neighbors in searching: " + hitNeighbors.Count + '\n');
             var neighbor = rand.Next(0,hitNeighbors.Count-1);
             return hitNeighbors[neighbor].Coordinates;
         }
@@ -111,11 +107,9 @@ namespace Battleship
         {
             if (shot.IsOccupied)
             {
-               // MessageBox.Show(shot.Occupation.ToString());
                 foreach (var ship in Ships)
                 {
                     if (ship.Occupation == shot.Occupation) ship.Width--;
-                  //  if (ship.Occupation == shot.Occupation && ship.IsSunk) MessageBox.Show(ship.Name + " is sunk.");
                 }
                 Board.Squares.Where(s => s == shot).FirstOrDefault().Occupation = Occupation.Hit;
             }

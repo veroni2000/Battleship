@@ -36,6 +36,7 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonPlace = new System.Windows.Forms.Button();
             this.labelRandom = new System.Windows.Forms.Label();
+            this.buttonPlayAgain = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AIb
@@ -127,11 +128,25 @@
             this.labelRandom.TabIndex = 10;
             this.labelRandom.Text = "(random ships)";
             // 
+            // buttonPlayAgain
+            // 
+            this.buttonPlayAgain.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPlayAgain.ForeColor = System.Drawing.Color.Green;
+            this.buttonPlayAgain.Location = new System.Drawing.Point(570, 19);
+            this.buttonPlayAgain.Name = "buttonPlayAgain";
+            this.buttonPlayAgain.Size = new System.Drawing.Size(113, 51);
+            this.buttonPlayAgain.TabIndex = 11;
+            this.buttonPlayAgain.Text = "Play again";
+            this.buttonPlayAgain.UseVisualStyleBackColor = true;
+            this.buttonPlayAgain.Visible = false;
+            this.buttonPlayAgain.Click += new System.EventHandler(this.buttonPlayAgain_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.buttonPlayAgain);
             this.Controls.Add(this.labelRandom);
             this.Controls.Add(this.buttonPlace);
             this.Controls.Add(this.buttonStart);
@@ -142,6 +157,7 @@
             this.Controls.Add(this.AIb);
             this.DoubleBuffered = true;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Battleship";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormMain_MouseDown);
@@ -159,6 +175,7 @@
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Button buttonPlace;
         private System.Windows.Forms.Label labelRandom;
+        private System.Windows.Forms.Button buttonPlayAgain;
     }
 }
 

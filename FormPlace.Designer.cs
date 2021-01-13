@@ -36,11 +36,13 @@
             this.buttonReady = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelPlace = new System.Windows.Forms.Label();
+            this.labelSelectShip = new System.Windows.Forms.Label();
             this.selectOrientation.SuspendLayout();
             this.SuspendLayout();
             // 
             // selectShip
             // 
+            this.selectShip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectShip.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.selectShip.FormattingEnabled = true;
             this.selectShip.Items.AddRange(new object[] {
@@ -132,11 +134,22 @@
             this.labelPlace.Size = new System.Drawing.Size(0, 18);
             this.labelPlace.TabIndex = 5;
             // 
+            // labelSelectShip
+            // 
+            this.labelSelectShip.AutoSize = true;
+            this.labelSelectShip.Font = new System.Drawing.Font("Arial", 12F);
+            this.labelSelectShip.Location = new System.Drawing.Point(93, 75);
+            this.labelSelectShip.Name = "labelSelectShip";
+            this.labelSelectShip.Size = new System.Drawing.Size(85, 18);
+            this.labelSelectShip.TabIndex = 6;
+            this.labelSelectShip.Text = "Select ship";
+            // 
             // FormPlace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.labelSelectShip);
             this.Controls.Add(this.labelPlace);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonReady);
@@ -145,6 +158,7 @@
             this.Controls.Add(this.selectShip);
             this.DoubleBuffered = true;
             this.Name = "FormPlace";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormPlace";
             this.Load += new System.EventHandler(this.FormPlace_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormPlace_MouseDown);
@@ -165,5 +179,6 @@
         private System.Windows.Forms.Button buttonReady;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelPlace;
+        private System.Windows.Forms.Label labelSelectShip;
     }
 }

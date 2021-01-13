@@ -103,6 +103,7 @@ namespace Battleship
                         selectShip.Visible = false;
                         selectOrientation.Visible = false;
                         buttonPlace.Visible = false;
+                        labelSelectShip.Visible = false;
                     }
                 }
             }

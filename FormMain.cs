@@ -50,11 +50,13 @@ namespace Battleship
             {
                 gameStatus.Text = "You lose!";
                 gameStatus.ForeColor = Color.Red;
+                buttonPlayAgain.Visible = true;
             }
             if (Opponent.HasLost)
             {
                 gameStatus.Text = "You win!";
                 gameStatus.ForeColor = Color.Green;
+                buttonPlayAgain.Visible = true;
             }
         }
         private void FormMain_Load(object sender, EventArgs e)
@@ -133,6 +135,26 @@ namespace Battleship
             {
                 Player = new Player(new Point(410, 100));
             }            
+            Invalidate();
+        }
+
+        private void buttonPlayAgain_Click(object sender, EventArgs e)
+        {
+            /*System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
+            this.Close(); //to turn off current app*/
+            playing = false;
+            buttonStart.Visible = true;
+            buttonPlace.Visible = true;
+            labelRandom.Visible = true;
+            PlayerB.Visible = false;
+            AIb.Visible = false;
+            buttonPlayAgain.Visible = false;
+            labelShipsOp.Text = "";
+            labelShipsPl.Text = "";
+            gameStatus.Text = "";
+            Player = new Player(new Point(410, 100));
+            Opponent = new Player(new Point(40, 100));
+            Opponent.PlaceRandomShips();
             Invalidate();
         }
     }

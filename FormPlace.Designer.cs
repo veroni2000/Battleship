@@ -37,6 +37,7 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelPlace = new System.Windows.Forms.Label();
             this.labelSelectShip = new System.Windows.Forms.Label();
+            this.buttonRemove = new System.Windows.Forms.Button();
             this.selectOrientation.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,11 +145,24 @@
             this.labelSelectShip.TabIndex = 6;
             this.labelSelectShip.Text = "Select ship";
             // 
+            // buttonRemove
+            // 
+            this.buttonRemove.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRemove.Location = new System.Drawing.Point(630, 17);
+            this.buttonRemove.Name = "buttonRemove";
+            this.buttonRemove.Size = new System.Drawing.Size(110, 45);
+            this.buttonRemove.TabIndex = 7;
+            this.buttonRemove.Text = "Remove ship";
+            this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Visible = false;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            // 
             // FormPlace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.labelSelectShip);
             this.Controls.Add(this.labelPlace);
             this.Controls.Add(this.buttonCancel);
@@ -180,5 +194,6 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.Label labelSelectShip;
+        private System.Windows.Forms.Button buttonRemove;
     }
 }

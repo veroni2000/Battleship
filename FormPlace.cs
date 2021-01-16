@@ -18,6 +18,8 @@ namespace Battleship
         private int _shipIndex;
         private bool ready = false;
         private int clearSelect = 5;
+        private Square _click = null;
+        private Occupation _shipToBeRemovedOccupation = Occupation.Empty;
 
         private List<Ship> _ships;
         public List<Ship> Ships
@@ -53,13 +55,14 @@ namespace Battleship
             foreach (var square in Board.Squares)
             {
                 if (square.IsOccupied) square.Color = Color.Green;
+                else square.Color = Color.Aqua;
                 square.Draw(e.Graphics);
             }
-            foreach(var ship in Ships)
+            /*foreach(var ship in Ships)
             {
                 if(ship.IsPlaced)
                 selectShip.Items.Remove(ship.Name);
-            }
+            }*/
         }
         private void FormPlace_Load(object sender, EventArgs e)
         {
@@ -70,7 +73,7 @@ namespace Battleship
         {
             if (e.Button == MouseButtons.Left)
             {
-                var _click = _openSquares.Where(s => s.Contains(e.Location))
+                _click = _openSquares.Where(s => s.Contains(e.Location))
                 .FirstOrDefault();
                 if (_click != null && _shipToBePlaced!=null)
                 {
@@ -111,11 +114,27 @@ namespace Battleship
                         labelSelectShip.Visible = false;
                     }
                 }
+                else if(_shipToBePlaced == null)
+                {
+                    _click = Board.Squares.Where(s => s.Contains(e.Location))
+                .FirstOrDefault();
+                    if (_click != null)
+                    {
+                        if (_click.IsOccupied&&!ready)
+                        {
+                            _shipToBeRemovedOccupation = _click.Occupation;
+                            buttonRemove.Visible = true;
+                        }
+                        else buttonRemove.Visible = false;
+                    }
+                    
+                }
             }
             Invalidate();
         }
         private void buttonPlace_Click(object sender, EventArgs e)
         {
+            buttonRemove.Visible = false;
             if (selectShip.SelectedIndex == selectShip.Items.IndexOf("Carrier(5)") &&
                 Ships.Where(s => s.Occupation == Occupation.Carrier && !s.IsPlaced).FirstOrDefault()!=null)
             {
@@ -205,6 +224,44 @@ namespace Battleship
             clearSelect = 5;
             DialogResult = DialogResult.Cancel;
             
+        }
+
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            foreach(var square in Board.Squares)
+            {
+                if (square.Occupation == _shipToBeRemovedOccupation)
+                {
+                    square.Occupation = Occupation.Empty;
+                    _openSquares.Add(square);
+                }
+            }
+            foreach(var ship in Ships)
+            {
+                if (ship.Occupation == _shipToBeRemovedOccupation) ship.IsPlaced = false;
+            }
+            switch (_shipToBeRemovedOccupation)
+            {
+                case Occupation.Carrier:
+                    selectShip.Items.Add("Carrier(5)");
+                    break;
+                case Occupation.Battleship:
+                    selectShip.Items.Add("Battleshp(4)");
+                    break;
+                case Occupation.Cruiser:
+                    selectShip.Items.Add("Cruiser(3)");
+                    break;
+                case Occupation.Submarine:
+                    selectShip.Items.Add("Submarine(3)");
+                    break;
+                case Occupation.Destroyer:
+                    selectShip.Items.Add("Destroyer(2)");
+                    break;
+            }
+            clearSelect++;
+            buttonRemove.Visible = false;
+            _shipToBeRemovedOccupation = Occupation.Empty;
+            Invalidate();
         }
     }
 }

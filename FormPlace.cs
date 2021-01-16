@@ -72,7 +72,7 @@ namespace Battleship
             {
                 var _click = _openSquares.Where(s => s.Contains(e.Location))
                 .FirstOrDefault();
-                if (_click != null)
+                if (_click != null && _shipToBePlaced!=null)
                 {
                     List<Square> affectedSquares;
                     if (_orientationH)
@@ -89,6 +89,11 @@ namespace Battleship
                     }
                     foreach (var square in affectedSquares)
                         square.Occupation = _shipToBePlaced.Occupation;
+                    
+                    foreach(var ship in Ships)
+                    {
+                        if (ship.Occupation == _shipToBePlaced.Occupation) ship.IsPlaced = true;
+                    }
 
                     clearSelect--;
                     _shipToBePlaced = null;
@@ -111,36 +116,46 @@ namespace Battleship
         }
         private void buttonPlace_Click(object sender, EventArgs e)
         {
-            if (selectShip.SelectedIndex==selectShip.Items.IndexOf("Carrier(5)"))
+            if (selectShip.SelectedIndex == selectShip.Items.IndexOf("Carrier(5)") &&
+                Ships.Where(s => s.Occupation == Occupation.Carrier && !s.IsPlaced).FirstOrDefault()!=null)
             {
                 _shipIndex = selectShip.Items.IndexOf("Carrier(5)");
-                _shipToBePlaced = new Carrier(); 
+                _shipToBePlaced = new Carrier();
             }
-            else if (selectShip.SelectedIndex == selectShip.Items.IndexOf("Battleship(4)"))
+            else if (selectShip.SelectedIndex == selectShip.Items.IndexOf("Battleship(4)") &&
+                Ships.Where(s => s.Occupation == Occupation.Battleship && !s.IsPlaced).FirstOrDefault() != null)
             {
                 _shipIndex = selectShip.Items.IndexOf("Battleship(4)");
                 _shipToBePlaced = new Battleship();
             }
-            else if (selectShip.SelectedIndex == selectShip.Items.IndexOf("Cruiser(3)"))
+            else if (selectShip.SelectedIndex == selectShip.Items.IndexOf("Cruiser(3)") &&
+                Ships.Where(s => s.Occupation == Occupation.Cruiser && !s.IsPlaced).FirstOrDefault() != null)
             {
                 _shipIndex = selectShip.Items.IndexOf("Cruiser(3)");
                 _shipToBePlaced = new Cruiser();
             }
-            else if (selectShip.SelectedIndex == selectShip.Items.IndexOf("Submarine(3)"))
+            else if (selectShip.SelectedIndex == selectShip.Items.IndexOf("Submarine(3)") &&
+                Ships.Where(s => s.Occupation == Occupation.Submarine && !s.IsPlaced).FirstOrDefault() != null)
             {
                 _shipIndex = selectShip.Items.IndexOf("Submarine(3)");
                 _shipToBePlaced = new Submarine();
             }
-            else if(selectShip.SelectedIndex == selectShip.Items.IndexOf("Destroyer(2)"))
+            else if (selectShip.SelectedIndex == selectShip.Items.IndexOf("Destroyer(2)") &&
+                Ships.Where(s => s.Occupation == Occupation.Destroyer && !s.IsPlaced).FirstOrDefault() != null)
             {
                 _shipIndex = selectShip.Items.IndexOf("Destroyer(2)");
                 _shipToBePlaced = new Destroyer();
+            }
+            else
+            {
+                _shipToBePlaced = null;
+                _shipIndex = -1;
             }
             if (radioButtonV.Checked) _orientationH = false;
             else _orientationH = true;
             if (_shipToBePlaced == null)
             {
-                MessageBox.Show("Select ship first!");
+                labelPlace.Text = "Select ship first!";
             }
             else
             {

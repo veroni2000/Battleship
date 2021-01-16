@@ -148,7 +148,7 @@
             // buttonRemove
             // 
             this.buttonRemove.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRemove.Location = new System.Drawing.Point(630, 17);
+            this.buttonRemove.Location = new System.Drawing.Point(630, 22);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(110, 45);
             this.buttonRemove.TabIndex = 7;

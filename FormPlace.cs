@@ -58,17 +58,11 @@ namespace Battleship
                 else square.Color = Color.Aqua;
                 square.Draw(e.Graphics);
             }
-            /*foreach(var ship in Ships)
-            {
-                if(ship.IsPlaced)
-                selectShip.Items.Remove(ship.Name);
-            }*/
         }
         private void FormPlace_Load(object sender, EventArgs e)
         {
 
         }
-
         private void FormPlace_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -126,8 +120,7 @@ namespace Battleship
                             buttonRemove.Visible = true;
                         }
                         else buttonRemove.Visible = false;
-                    }
-                    
+                    }   
                 }
             }
             Invalidate();
@@ -206,13 +199,10 @@ namespace Battleship
                     {
                         continue;
                     }
-
                     _openSquares.Add(square);
                 }
-                
                 Invalidate();
             }
-            
         }
         private void buttonReady_Click(object sender, EventArgs e)
         {
@@ -222,10 +212,8 @@ namespace Battleship
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             clearSelect = 5;
-            DialogResult = DialogResult.Cancel;
-            
+            DialogResult = DialogResult.Cancel;   
         }
-
         private void buttonRemove_Click(object sender, EventArgs e)
         {
             foreach(var square in Board.Squares)
@@ -246,7 +234,7 @@ namespace Battleship
                     selectShip.Items.Add("Carrier(5)");
                     break;
                 case Occupation.Battleship:
-                    selectShip.Items.Add("Battleshp(4)");
+                    selectShip.Items.Add("Battleship(4)");
                     break;
                 case Occupation.Cruiser:
                     selectShip.Items.Add("Cruiser(3)");
